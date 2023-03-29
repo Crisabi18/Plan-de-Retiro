@@ -7,7 +7,8 @@
 	<script src="js/script.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" href="img/icono.ico">
+	<!-- <link rel="stylesheet" href="css/style.css"> -->
 	 <!-- Favicon-->
 	 <link rel="icon" type="image/x-icon" href="assets/ico.png" />
 	 <!-- Font Awesome icons (free version)-->
@@ -18,6 +19,7 @@
 	 <!-- Core theme CSS (includes Bootstrap)-->
 	 <link href="css/styles.css" rel="stylesheet" />
 	 <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-dark bg-dark" id="mainNav"></nav>
+	
 </head>
 <body>
 	<header class="masthead mb-5">
@@ -97,11 +99,12 @@
 
 					</div>
 
-			
+					
 
 					<h2 class="text-uppercase text-center text-danger mb-5">PLAN DE RETIRO</h2>
 					<br>
 
+					<form id="formulario">
 	<div class="container">
 		<div class="main row">
 			<div id="entradas" class="col-lg-5 border border-danger rounded-5 border-2 p-5 text-center">
@@ -111,7 +114,7 @@
 				<label for="semanas">Semanas de inversión: </label><br>
 				<input type="number" id="semanas" required><br><br>
 				<label for="periodo">Periodo: </label><br>
-				<select name="periodo" id="periodo" required>
+				<select name="periodo" id="periodo" onclick="periodo()" required>
 					<option value="Diario"    > Diario     </option>
 					<option value="Semanal"   > Semanal    </option>
 					<option value="Quincenal" > Quincenal  </option>
@@ -123,9 +126,13 @@
 				$<input type="number" id="montoSemanal" required><br><br>
 				<label for="inversionInicial">Inversión inicial: </label><br>
 				$<input type="number" id="inversionInicial" required><br><br>
-				<button class="btn btn-danger btn-xm text-uppercase"  onclick="calcularResultado()">Calcular</button><br>
+				<div class="row">
+				<button type="button" class="btn btn-danger btn-xm text-uppercase col-5"  onclick="calcularResultado()">Calcular</button><br>
+				<button class="btn btn-secondary btn-xm text-uppercase col-5"  onclick="limpiar()">Limpiar</button><br>
+				</div>
+				
 			</div>
-			
+		</form>
 			<div class="col-lg-2 mt-5 text-danger .fs-20">
 			</div>
 
@@ -140,9 +147,7 @@
 			</div>
 		</div>
 		<br><br>
-		<div class="row" id="divTabla">
-			
-		</div>
+	
 	
 <section class="page-section" >
 	<div class="container">

@@ -99,6 +99,11 @@ body {
   background-color: rgb(197, 62, 132);
   border-radius: 8px;
 }
+.row>.btn{
+  margin-top: 10px;
+  margin-left: 25px;
+}
+
 
 hr {
   margin: 1rem 0;

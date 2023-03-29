@@ -6,11 +6,9 @@ function calcularResultado()
 	let montoSemanal = document.getElementById("montoSemanal").value;
 	let inversionInicial = document.getElementById("inversionInicial").value;
 
-	let tasaSemanal = tasaAnual / 360 * 7  /100;
-	// let tasaSemanal  = tasaAnual / 52 / 100;
 	let tasa = obtenerTasa(periodo, tasaAnual);
 	let totalInvertido = (montoSemanal * semanas) + parseFloat (inversionInicial);
-	let saldo = calcularSaldo(inversionInicial, semanas, montoSemanal, tasaSemanal);
+	let saldo = calcularSaldo(inversionInicial, semanas, montoSemanal, tasa);
 	let ganancia = saldo - totalInvertido;
 
 	document.getElementById("totalInvertido").value = totalInvertido.toFixed(2);
@@ -18,8 +16,12 @@ function calcularResultado()
 	document.getElementById("ganancia").value = ganancia.toFixed(2);
 
 	console.log(periodo);
-	crearTabla(inversionInicial, semanas, montoSemanal, tasa, periodo);
 }
+
+
+function limpiar() {
+    document.getElementById("formulario").reset();
+  }
 
 
 function obtenerTasa(periodo, tasaAnual)
@@ -32,7 +34,6 @@ function obtenerTasa(periodo, tasaAnual)
 			break;
 		case "Semanal":
 			tasa = tasaAnual / 360 * 7  /100;
-			// tasa = tasaAnual / 52 / 100;
 			break;
 		case "Quincenal":
 			tasa = tasaAnual / 360 * 15 /100;
@@ -55,6 +56,7 @@ function calcularSaldo(inversionInicial, numeroSemanas, montoSemanal, tasa)
 	let saldo = parseFloat(inversionInicial);
 	let interes = 0;
 
+	//numero de semanas = periodo
 	for (let i = 1; i <= numeroSemanas; i++) 
 	{
 		saldo += parseFloat(montoSemanal);
@@ -64,4 +66,3 @@ function calcularSaldo(inversionInicial, numeroSemanas, montoSemanal, tasa)
 
 	return saldo;
 }
-
